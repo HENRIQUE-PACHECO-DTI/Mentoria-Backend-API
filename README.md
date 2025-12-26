@@ -1,4 +1,4 @@
-# 🏆 Rinha de Backend - Edição 2023 Q3
+# 🏆 MENTORIA BACKEND - JAVA
 
 ## Resumo
 
