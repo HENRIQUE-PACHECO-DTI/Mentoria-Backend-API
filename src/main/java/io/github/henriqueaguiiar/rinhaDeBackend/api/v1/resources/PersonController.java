@@ -55,5 +55,9 @@ public class PersonController {
         return ResponseEntity.status(HttpStatus.OK).body(filtered);
     }
 
-
+    @GetMapping("/contagemPessoas")
+    public ResponseEntity<Integer> contagemPessoas(){
+        var contaem = personService.contagemPessoas();
+        return ResponseEntity.status(HttpStatus.OK).body(contaem);
+    }
 }

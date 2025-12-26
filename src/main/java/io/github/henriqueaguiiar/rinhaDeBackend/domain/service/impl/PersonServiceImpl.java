@@ -99,8 +99,11 @@ public class PersonServiceImpl implements PersonService {
         } catch (DateTimeParseException e) {
             throw new CreatePersonException("A data de nascimento deve estar no formato AAAA-MM-DD");
         }
+    }
 
-
-
+    @Override
+    public Integer contagemPessoas() {
+        List<PersonOutputDTO> allPerson = getAllPerson();
+        return allPerson.size();
     }
 }

@@ -19,5 +19,7 @@ public interface PersonService {
 
     void validateInputPerson(PersonInputDTO personInputDTO);
 
+    Integer contagemPessoas();
+
 
 }
