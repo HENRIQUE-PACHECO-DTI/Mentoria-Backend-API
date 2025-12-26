@@ -46,7 +46,15 @@ public class PersonServiceImpl implements PersonService {
         return  personOutputDTOList;
     }
 
-
+    @Override
+    public List<PersonOutputDTO> getAllByTerm(String term) {
+        List<Person> personList = personRepository.search(term.toLowerCase());
+        List<PersonOutputDTO> personOutputDTOList = new ArrayList<>();
+        for(Person person : personList){
+            personOutputDTOList.add(PersonMapper.toOutputDTO(person));
+        }
+        return personOutputDTOList;
+    }
 
 
     @Override
@@ -54,9 +62,6 @@ public class PersonServiceImpl implements PersonService {
         Person person = personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException("Pessoa Não Encontrada com este Id"));
         return PersonMapper.toOutputDTO(person);
     }
-
-
-
 
 
     @Override

@@ -31,11 +31,6 @@ public class PersonController {
            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
        }
     }
-    @GetMapping
-    public ResponseEntity<List<PersonOutputDTO>> getAllPerson(){
-        return ResponseEntity.status(HttpStatus.OK).body(personService.getAllPerson());
-    }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getPersonbyId(@PathVariable String id){
@@ -47,7 +42,18 @@ public class PersonController {
         }
     }
 
+    @GetMapping
+    public ResponseEntity<List<PersonOutputDTO>> getPersons(
+            @RequestParam(name = "t", required = false) String termo) {
 
+        if (termo == null || termo.isBlank()) {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(personService.getAllPerson());
+        }
+
+        List<PersonOutputDTO> filtered = personService.getAllByTerm(termo);
+        return ResponseEntity.status(HttpStatus.OK).body(filtered);
+    }
 
 
 }

@@ -23,6 +23,7 @@ public class Person implements Serializable {
     @Column(name = "bornDate")
     private String bornDate;
     @Column(name = "stack")
+    @ElementCollection
     private List<String> stack;
 
 

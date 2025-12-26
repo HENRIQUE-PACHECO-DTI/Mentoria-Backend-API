@@ -15,6 +15,8 @@ public interface PersonService {
 
      List<PersonOutputDTO> getAllPerson();
 
+     List<PersonOutputDTO> getAllByTerm(String term);
+
     void validateInputPerson(PersonInputDTO personInputDTO);
 
 
