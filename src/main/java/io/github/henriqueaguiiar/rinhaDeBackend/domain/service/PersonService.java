@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public interface PersonService {
 
-    public PersonOutputDTO createPerson (PersonInputDTO personInputDTO);
+     PersonOutputDTO createPerson (PersonInputDTO personInputDTO);
 
+    void validateInputPerson(PersonInputDTO personInputDTO);
 
 
 }

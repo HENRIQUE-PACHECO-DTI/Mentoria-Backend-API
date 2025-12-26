@@ -3,7 +3,6 @@ package io.github.henriqueaguiiar.rinhaDeBackend.api.v1.resources;
 
 import io.github.henriqueaguiiar.rinhaDeBackend.api.v1.dto.input.PersonInputDTO;
 import io.github.henriqueaguiiar.rinhaDeBackend.api.v1.dto.output.PersonOutputDTO;
-import io.github.henriqueaguiiar.rinhaDeBackend.domain.repository.PersonRepository;
 import io.github.henriqueaguiiar.rinhaDeBackend.domain.service.PersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
