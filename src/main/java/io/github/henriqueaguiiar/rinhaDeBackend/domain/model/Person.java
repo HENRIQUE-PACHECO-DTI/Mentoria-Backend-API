@@ -1,9 +1,6 @@
 package io.github.henriqueaguiiar.rinhaDeBackend.domain.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -18,7 +15,7 @@ public class Person implements Serializable {
 
     @Id
     @Column(name = "id")
-    private String id;
+    private UUID id;
     @Column(name = "surName")
     private String surName;
     @Column(name = "name")
@@ -32,18 +29,20 @@ public class Person implements Serializable {
     public Person() {
     }
 
-    public Person(String id, String surName, String name, LocalDate bornDate, List<String>  stack) {
-        this.id = id;
+    public Person(String surName, String name, LocalDate bornDate, List<String>  stack) {
         this.surName = surName;
         this.name = name;
         this.bornDate = bornDate;
         this.stack = stack;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     public String getSurName() {
         return surName;

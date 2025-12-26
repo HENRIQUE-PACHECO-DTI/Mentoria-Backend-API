@@ -1,6 +1,8 @@
 package io.github.henriqueaguiiar.rinhaDeBackend.api.v1.dto.output;
 
 import com.github.f4b6a3.uuid.UuidCreator;
+import io.github.henriqueaguiiar.rinhaDeBackend.api.v1.dto.input.PersonInputDTO;
+import io.github.henriqueaguiiar.rinhaDeBackend.domain.model.Person;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
@@ -17,8 +19,8 @@ import java.util.UUID;
 
 public class PersonOutputDTO {
 
-    @Id
-    private String id;
+
+    private UUID id;
     private String surName;
     private String name;
     private LocalDate bornDate;
@@ -27,21 +29,18 @@ public class PersonOutputDTO {
 
     /**
      * Using UUID v7 to create id
-     * @param surName
-     * @param name
-     * @param bornDate
-     * @param stack
+     * @param personInputDTO to created OutputDTO
      */
-    public PersonOutputDTO(String surName, String name, LocalDate bornDate, List<String> stack) {
-        this.id = UuidCreator.getTimeOrderedEpoch().toString();
-        this.surName = surName;
-        this.name = name;
-        this.bornDate = bornDate;
-        this.stack = stack;
+
+    public PersonOutputDTO() {
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getSurName() {
