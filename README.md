@@ -1,4 +1,4 @@
-# 🏆 MENTORIA BACKEND - JAVA
+# BACKEND - JAVA - CRUD PESSOAS
 
 ## Resumo
 
