@@ -7,9 +7,10 @@ import io.github.henriqueaguiiar.rinhaDeBackend.api.v1.dto.output.PersonOutputDT
 import io.github.henriqueaguiiar.rinhaDeBackend.domain.model.Person;
 import org.springframework.stereotype.Component;
 
+@Component
 public class PersonMapper {
 
-    public static Person  toEntity(PersonInputDTO personInputDTO){
+    public Person  toEntity(PersonInputDTO personInputDTO){
         Person person = new Person();
         person.setId(UuidCreator.getTimeOrderedEpoch().toString());
         person.setSurName(personInputDTO.getSurName());
@@ -19,7 +20,7 @@ public class PersonMapper {
         return person;
     }
 
-    public static PersonOutputDTO toOutputDTO(Person person){
+    public PersonOutputDTO toOutputDTO(Person person){
         PersonOutputDTO personOutput = new PersonOutputDTO();
         personOutput.setId(person.getId());
         personOutput.setSurName(person.getSurName());

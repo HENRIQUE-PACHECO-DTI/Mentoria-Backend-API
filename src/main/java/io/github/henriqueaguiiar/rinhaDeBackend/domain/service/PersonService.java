@@ -26,5 +26,10 @@ public interface PersonService {
 
     Integer contagemPessoas();
 
+    PersonOutputDTO atualizarPerson(PersonInputDTO personInputDTO, String id);
+
+    PersonOutputDTO atualizarItemPerson(String id, PersonInputDTO personInputDTO);
+
+    void deletarPerson(String id);
 
 }

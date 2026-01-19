@@ -71,4 +71,25 @@ public class PersonController {
         var contagem = personService.contagemPessoas();
         return ResponseEntity.status(HttpStatus.OK).body(contagem);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PersonOutputDTO> atualizarPerson(@RequestBody PersonInputDTO personInputDTO, @PathVariable String id){
+
+        PersonOutputDTO personAtualizada = personService.atualizarPerson(personInputDTO, id);
+        return ResponseEntity.status(HttpStatus.OK).body(personAtualizada);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<PersonOutputDTO> atualizarItemPerson(@RequestBody PersonInputDTO personInputDTO, @PathVariable String id){
+
+        PersonOutputDTO personAtualizada = personService.atualizarItemPerson(id, personInputDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(personAtualizada);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarPerson(@PathVariable String id){
+        personService.deletarPerson(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }
