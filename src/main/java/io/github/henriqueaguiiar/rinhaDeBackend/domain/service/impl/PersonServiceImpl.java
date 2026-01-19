@@ -27,18 +27,19 @@ public class PersonServiceImpl implements PersonService {
     private static final DateTimeFormatter BIRTHDATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     private final PersonRepository personRepository;
+    private final PersonMapper personMapper;
 
-    public PersonServiceImpl(PersonRepository personRepository) {
+    public PersonServiceImpl(PersonRepository personRepository, PersonMapper personMapper) {
         this.personRepository = personRepository;
-
+        this.personMapper = personMapper;
     }
 
     @Override
     public PersonOutputDTO createPerson(PersonInputDTO personInputDTO) {
             validateInputPerson(personInputDTO);
-            var personDatabase =  PersonMapper.toEntity(personInputDTO);
+            var personDatabase =  personMapper.toEntity(personInputDTO);
             personRepository.save(personDatabase);
-            return PersonMapper.toOutputDTO(personDatabase);
+            return personMapper.toOutputDTO(personDatabase);
     }
 
 
@@ -47,7 +48,7 @@ public class PersonServiceImpl implements PersonService {
         List<Person> persons = personRepository.findAll();
         List<PersonOutputDTO> personOutputDTOList = new ArrayList<>();
         for(Person person : persons){
-            personOutputDTOList.add(PersonMapper.toOutputDTO(person));
+            personOutputDTOList.add(personMapper.toOutputDTO(person));
         }
         return  personOutputDTOList;
     }
@@ -57,7 +58,7 @@ public class PersonServiceImpl implements PersonService {
         List<Person> personList = personRepository.search(term.toLowerCase());
         List<PersonOutputDTO> personOutputDTOList = new ArrayList<>();
         for(Person person : personList){
-            personOutputDTOList.add(PersonMapper.toOutputDTO(person));
+            personOutputDTOList.add(personMapper.toOutputDTO(person));
         }
         return personOutputDTOList;
     }
@@ -66,7 +67,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public PersonOutputDTO getPersonById(String id){
         Person person = personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException("Pessoa Não Encontrada com este Id"));
-        return PersonMapper.toOutputDTO(person);
+        return personMapper.toOutputDTO(person);
     }
     /**
      *Metodo para validar o input de dados para POST/Criação de Recurso.
