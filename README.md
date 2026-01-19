@@ -9,7 +9,7 @@
 
 ## Endpoints
 
-As APIs precisam expor 3 (4, na verdade) endpoints:
+As APIs precisam expor 7 endpoints e ter os principais que formam um CRUD completo:
 
 - `POST /pessoas` – para criar um recurso pessoa.
 - `GET /pessoas/[:id]` – para consultar um recurso criado com a requisição anterior.
