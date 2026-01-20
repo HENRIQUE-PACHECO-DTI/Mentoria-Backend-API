@@ -19,6 +19,9 @@ As APIs precisam expor 7 endpoints e ter os principais que formam um CRUD comple
 - `PATCH /pessoas/[:id]` – endpoint para atualizar atributo de pessoas cadastradas.
 - `DELETE /pessoas/[:id]` – endpoint  para deletar registro de pessoas cadastradas.
 
+### Doc
+`SWAGGER OPEN-API` - http://localhost:8080/swagger-ui/index.html#/
+
 ### Criação de Pessoas
 
 `POST /pessoas`
